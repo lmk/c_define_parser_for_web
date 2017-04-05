@@ -1,0 +1,34 @@
+{
+  "list": [
+    {
+      "product": "mas 2.0",
+      "items": [
+        {
+          "category": "protocol",
+          "files": [
+            {
+
+            }
+          ]
+        },
+        {
+          "category": "error",
+          "files": []
+        }
+      ]
+    },
+    {
+      "product": "secure 2.0",
+      "items": [
+        {
+          "category": "protocol",
+          "files": []
+        },
+        {
+          "category": "error",
+          "files": []
+        }
+      ]
+    }
+  ]
+}
