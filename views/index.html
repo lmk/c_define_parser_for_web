@@ -2,7 +2,6 @@
 
 {% block title %}{% endblock %}
 
-
 {% block content %}
 
   <div class="container">
@@ -10,6 +9,19 @@
     <h1>{{ title }}</h1>
     <p>Welcome to {{ title }}</p>
 
+    <form role="form">
+        <div class="row">
+            <div class="col-md-4">
+                <div class="checkbox checkbox-primary">
+                    <input type="checkbox" class="styled" id="singleCheckbox1">
+                    <label for="singleCheckbox1">테스트</label>
+                </div>
+            </div>
+        </div>
+    </form>
+
   </div>
 
 {% endblock %}
+
+<script type="text/javascript" src="//code.jquery.com/jquery-2.1.4.min.js"></script>
