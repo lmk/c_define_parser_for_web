@@ -3,6 +3,7 @@
   "version": "0.0.1",
   "private": true,
   "scripts": {
+    "build": "node node_modules/babel-cli/bin/babel.js backend -out-dir bin",
     "start": "node ./backend/app.js",
     "test": "webpack-dev-server --hot --host 0.0.0.0"
   },
@@ -11,7 +12,7 @@
     "cookie-parser": "~1.4.3",
     "debug": "~2.6.3",
     "express": "~4.15.2",
-    "jade": "~1.11.0",
+    "swig": "1.4.2",
     "morgan": "~1.8.1",
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
@@ -30,10 +31,12 @@
   },
   "homepage": "https://github.com/lmk/c_define_parser_for_web#readme",
   "devDependencies": {
+    "babel-cli": "^6.24.1",
     "babel-core": "^6.24.0",
     "babel-loader": "^6.4.1",
     "babel-preset-es2015": "^6.24.0",
     "babel-preset-react": "^6.23.0",
+    "consolidate": "^0.14.5",
     "webpack": "^2.3.3",
     "webpack-dev-server": "^2.4.2"
   }
