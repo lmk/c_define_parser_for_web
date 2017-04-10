@@ -1,5 +1,8 @@
 import React from 'react';
 
+import { connect } from 'react-redux';
+import { receiveValue } from '../../actions';
+
 class ReqList extends React.Component {
 
     constructor(props)
