@@ -1,17 +1,19 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import ReqList from './components/reqlist';
-import ReqList from './components/test';
+import ReqList from './components/reqlist';
+//import ReqList from './components/test';
 
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
-import counterReducer from './reducers';
+import reqListReducer from './reducers';
 
-const store = createStore(counterReducer);
+const store = createStore(reqListReducer);
+
+console.log("TRACE frontend/index.js")
 
 const rootElement = document.getElementById('req-list');
 ReactDOM.render(
     <Provider store={store}>
-        <ReqList />
+        <ReqList detailData={reqListReducer}/>
     </Provider>, rootElement
 );

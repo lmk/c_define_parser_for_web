@@ -1,12 +1,13 @@
-import { RECV_VALUE } from '../actions';
+import { ALL_LIST } from '../actions';
 
 const initialState = {
     value: -1
 };
 
-const counterReducer = (state = initialState, action) => {
+const reqListReducer = (state = initialState, action) => {
+    console.log("TRACE reducers/index.js");
     switch(action.type) {
-        case RECV_VALUE:
+        case ALL_LIST:
             return Object.assign({}, state, {
                 value: action.value
             });
@@ -15,4 +16,4 @@ const counterReducer = (state = initialState, action) => {
     }
 };
 
-export default counterReducer;
+export default reqListReducer;

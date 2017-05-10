@@ -2,7 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var router = express.Router();
 
-/* GET users listing. */
+/* GET reqlist listing. */
 router.get('/', function(req, res, next) {
 
   fs.readFile(__dirname + '/../config.json', 'utf-8', (err, data)=>{

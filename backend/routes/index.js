@@ -1,9 +1,11 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET home page. */
+console.log("TRACE backend/routes/index.js");
+
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Express' });
+  console.log("TRACE backend/routes/index.js get /");
+  res.render('index');
 });
 
 module.exports = router;

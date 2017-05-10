@@ -7,7 +7,7 @@
     "server": "node node_modules/babel-cli/bin/babel.js backend --out-dir build",
     "build": "npm run client&&npm run server",
     "start": "set NODE_ENV=production&&node ./build/app.js",
-    "test": "set NODE_ENV=development&&node ./build/app.js"
+    "dev": "npm run build&&set NODE_ENV=development&&node ./build/app.js"
   },
   "dependencies": {
     "body-parser": "~1.17.1",

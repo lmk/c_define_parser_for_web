@@ -1,33 +1,28 @@
 {
   "list": [
     {
-      "product": "mas 2.0",
-      "items": [
-        {
-          "category": "protocol",
-          "files": [
-            {
-
-            }
-          ]
-        },
-        {
-          "category": "error",
-          "files": []
-        }
+      "id" : "ptnZwfEDxj8Tv7YY855Uh9obJUQuYQI5",
+      "title": "MAS 2.0 Error-Code",
+      "files": [
+        "eNBioMAS20/trunk/Common/error.h",
+        "eNBioMAS20/trunk/Common/_NSearchHeader/NITGEN_NFS_ERROR.h"
+      ],
+      "option": {
+        "checked": true
+      }
+    },
+    {
+      "id" : "vGe1zSoTlp7ErJunAL8ZX84siAPpa1vf",
+      "title": "Secure Error-Code",
+      "files": [
+        "eNBioSecure/trunk/Common/error.h"
       ]
     },
     {
-      "product": "secure 2.0",
-      "items": [
-        {
-          "category": "protocol",
-          "files": []
-        },
-        {
-          "category": "error",
-          "files": []
-        }
+      "id" : "RIJBzKH9SEAsWeSWOwffMZhYqBO7X1c9",
+      "title": "BSP Error-Code",
+      "files": [
+        "eNBioBSP/trunk/NBioBSPSDK/NBioBSPSDK/Inc/NBioAPI_Error.h"
       ]
     }
   ]
