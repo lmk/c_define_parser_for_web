@@ -23,7 +23,10 @@
       "title": "BSP Error-Code",
       "files": [
         "eNBioBSP/trunk/NBioBSPSDK/NBioBSPSDK/Inc/NBioAPI_Error.h"
-      ]
+      ],
+      "option": {
+        "checked": true
+      }
     }
   ]
 }

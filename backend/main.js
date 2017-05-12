@@ -8,6 +8,7 @@ var cons = require('consolidate');
 
 var index = require('./routes/index');
 var reqList = require('./routes/reqlist');
+var query = require('./routes/query');
 
 var app = express();
 
@@ -26,6 +27,7 @@ app.use(express.static(path.join(__dirname, '../public')));
 
 app.use('/', index);
 app.use('/list', reqList);
+app.use('/query', query);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
