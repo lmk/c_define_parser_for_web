@@ -21,41 +21,58 @@ export default class MainWrapper extends React.Component {
 
     }
 
-    handleFinder() {
-        console.log("checkbox", this.refs);
-        console.log("checkbox", this.refs.reqlist);
-        console.log("checkbox", this.refs.reqlist.getChilds());
+    // request find code
+    handleFinder(code) {
+        // console.log("checkbox", this.refs);
+        //console.log("checkbox", this.refs.reqlist);
+        //console.log("checkbox", this.refs.reqlist.getChilds());
 
-        var obj = ReactDOM.findDOMNode(this.refs.reqlist);
+        var checkboxList = this.refs.reqlist.getChilds();
+        var checkedList = [];
 
-        console.log('findDOMNode', obj);
+        for(var i in checkboxList) {
+            if ( checkboxList[i].state.checked) {
+                checkedList.push(checkboxList[i].props.id);
+            }
+        }
 
+        if (checkedList.length <= 0 )
+        {
+            return;
+        }
 
-        // fetch('/query', {
-        //     headers: {
-        //     'Accept': 'application/json',
-        //     'Content-Type': 'application/json'
-        //     },
-        //     method: "POST",
-        //     body: JSON.stringify({a: 1, b: 2})
-        // })
-        // .then(result=>{
-        //     result.json().then(data=>{
-        //         this.setState({detailData: data.list});
-        //     });
-
-        //     //
-        // });
+        fetch('/query', {
+            headers: {
+            'Accept': 'application/json',
+            'Content-Type': 'application/json'
+            },
+            method: "POST",
+            body: JSON.stringify({'code': code,'query-list': checkedList})
+        })
+        .then(result=>{
+            result.json().then(data=>{
+                //console.log("result: ", data);
+                this.refs.querylist.OnChangeResult(data);
+            });
+        });
     }
-
-
 
     render(){
         return(
-            <div>
-                <ReqList ref='reqlist'/>
-                <FindButton handleFinder={this.handleFinder} enabled={this.state.disabledFindbutton}/>
-                <QueryResult ref='querylist'/>
+            <div className="grid">
+                <div className='row'>
+                    <ReqList ref='reqlist'/>
+                    <br/>
+                </div>
+                <div className='row'>
+                    <br/>
+                    <FindButton handleFinder={this.handleFinder} enabled={this.state.disabledFindbutton}/>
+                </div>
+                <br/>
+                <hr/>
+                <div className='row'>
+                    <QueryResult ref='querylist'/>
+                </div>
                 {this.props.children}
             </div>
         )

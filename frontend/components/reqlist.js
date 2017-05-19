@@ -51,11 +51,27 @@ export default class ReqList extends React.Component {
 }
 
 class Checkbox extends React.Component {
+
+    constructor()
+    {
+        super();
+        this.state = {checked: false};
+        this.onChecked = this.onChecked.bind(this);
+    }
+
+    onChecked(e) {
+        this.setState({checked: e.target.checked})
+    }
+
+    componentWillMount() {
+        this.setState({checked: (this.props.checked==='checked')?true:false})
+    }
+
     render() {
         return (
             <div className="col-md-4">
                 <div className="checkbox checkbox-primary">
-                    <input type="checkbox" className="styled" id={this.props.id} defaultChecked={this.props.checked} ref={this.props.id}/>
+                    <input type="checkbox" className="styled" id={this.props.id} defaultChecked={this.props.checked} ref={this.props.id} onChange={this.onChecked}/>
                     <label>{this.props.title}</label>
                 </div>
             </div>

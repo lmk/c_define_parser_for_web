@@ -6,22 +6,28 @@ export default class FindButton extends React.Component {
     constructor(props)
     {
         super(props);
-        this.state = {disable: []};
-        this.handleClick = this.handleClick.bind(this);
-        this.handleKeyPress = this.handleKeyPress.bind(this);
+        this.state = {code: 0};
+        this.OnClick = this.OnClick.bind(this);
+        this.OnKeyPress = this.OnKeyPress.bind(this);
+        this.OnChangeCode = this.OnChangeCode.bind(this);
     }
 
-    handleKeyPress(target) {
+    OnKeyPress(target) {
+        // input enter key
         if(target.charCode==13){
-            this.handleClick(target);
+            this.OnClick(target);
         }
     }
 
-    handleClick(target) {
+    OnClick(target) {
         if ( this.props.disabledFindbutton === 'disabled')
             return;
 
-        this.props.handleFinder();
+        this.props.handleFinder(this.state.code);
+    }
+
+    OnChangeCode(o) {
+        this.setState({code: o.target.value});
     }
 
     setDisable(isDisable) {
@@ -32,9 +38,9 @@ export default class FindButton extends React.Component {
 
         return (
           <div className="input-group">
-            <input type="text" className="form-control" placeholder="Search for..." onKeyPress={this.handleKeyPress}/>
+            <input type="text" className="form-control" placeholder="Search for..." onKeyPress={this.OnKeyPress} onChange={this.OnChangeCode}/>
             <span className="input-group-btn">
-                <button id="button" className="btn btn-secondary" type="button" onClick={this.handleClick} disabled={this.props.disabledFindbutton}>Find!</button>
+                <button id="button" className="btn btn-secondary" type="button" onClick={this.OnClick} disabled={this.props.disabledFindbutton}>Find!</button>
             </span>
           </div>
         );

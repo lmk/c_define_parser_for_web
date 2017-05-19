@@ -18,7 +18,7 @@ module.exports = {
         filename: 'bundle.js',
         publicPath: '/',
         historyApiFallback: true,
-        contentBase: './public',
+        contentBase: './backend',
         proxy: {
             "**": "http://localhost:3000"
         }

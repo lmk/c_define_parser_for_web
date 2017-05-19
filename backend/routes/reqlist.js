@@ -2,8 +2,7 @@ var express = require('express');
 var fs = require('fs');
 var router = express.Router();
 
-/* GET reqlist listing. */
-router.get('/', function(req, res, next) {
+function onReqList(req, res, next) {
 
   fs.readFile(__dirname + '/../config.json', 'utf-8', (err, data)=>{
     if (err != null)
@@ -16,6 +15,11 @@ router.get('/', function(req, res, next) {
     res.end(data);
   });
 
-});
+}
+
+
+/* GET reqlist listing. */
+router.get('/', onReqList);
+router.post('/', onReqList);
 
 module.exports = router;
