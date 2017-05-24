@@ -1,24 +1,22 @@
 #!/usr/bin/python
-#from __future__ import print_function
 import re, sys, json
 
 val = 0
 title = ''
 
-def print_error(msg):
-    result = {'category': 'ERROR', 'code': val, 'title': title, 'result': msg}
+def print_common(category, msg):
+    result = {'category': category, 'code': val, 'title': title, 'result': msg}
     print(json.dumps(result, ensure_ascii=False))
     sys.exit()
 
-def print_normal(lst):
-    result = {'category': 'INFO', 'code': val, 'title': title, 'result': lst}
-    print((json.dumps(result, ensure_ascii=False)))
-    sys.exit()
+def print_error(msg):
+    print_common('ERROR', msg)
+
+def print_normal(msg):
+    print_common('INFO', msg)
 
 def read_in():
-    #return json.loads('{"code":"1","title":"MAS 2.0 Error-Code","files":["build/mas21/error/error.h","build/nsearch/error/NITGEN_NFS_ERROR.h","build/bsp/error/NBioAPI_Error.h"]}')
-    #return json.loads('{"code":"1","title":"Secure Error-Code","files":["build/secure27/error/error.h","build/bsp/error/NBioAPI_Error.h","build/secure27/protocol/protocol.h"]}')
-    #return json.loads('{"code":"1","title":"openssl ","files":["build/openssl/err.h"]}')
+    #return json.loads('{"code":"0x120A","title":"Sample Project","files":["build/sample-project/error.h", "build/sample-project/type.h"]}')
     lines = sys.stdin.readlines()
     return json.loads(lines[0])
 
