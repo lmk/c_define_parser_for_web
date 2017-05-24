@@ -76,7 +76,7 @@ try:
             v_pos = enum_item.find('=')
             if v_pos == -1:
                 enum_key = enum_item.strip()
-                enum_value = enum_value + '+ 1'
+                enum_value = str(enum_value) + '+ 1'
             else:
                 enum_key = enum_item[:v_pos-1].strip()
                 enum_value = enum_item[v_pos+1:].strip()
