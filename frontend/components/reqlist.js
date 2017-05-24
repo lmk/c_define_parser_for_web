@@ -2,6 +2,8 @@ import React from 'react';
 
 import { connect } from 'react-redux';
 import { receiveValue } from '../actions';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
 export default class ReqList extends React.Component {
 

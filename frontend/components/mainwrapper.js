@@ -1,16 +1,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-//import MainWrapper from './components/mainwrapper';
 import ReqList from './reqlist';
 import FindButton from './findbutton';
 import QueryResult from './queryresult';
-//import ReqList from './components/test';
+require('es6-promise').polyfill();
+require('isomorphic-fetch');
 
-// import { createStore } from 'redux';
-// import { Provider } from 'react-redux';
-// import reqListReducer from './reducers';
-
-// const store = createStore(reqListReducer);
 export default class MainWrapper extends React.Component {
 
     constructor(props)
