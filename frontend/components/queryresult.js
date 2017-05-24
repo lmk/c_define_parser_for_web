@@ -50,7 +50,7 @@ class ResultItem extends React.Component {
                 <div className="row">
                     <span className="badge badge-primary">{this.props.data.title}</span>
                     <br/><br/>
-                    <div className="row alert alert-danger">
+                    <div className="alert alert-danger">
                         <h4>
                             <div>{this.props.data.result}</div>
                         </h4>
