@@ -59,6 +59,6 @@ npm run start
 ## Restriction
   * support Edge
   * support Chrome
-  * not support Internet Explorer
+  * support Internet Explorer (used [isomorphic-fetch](https://github.com/matthew-andrews/isomorphic-fetch))
   * node v6.0 higher
   * python 2.7
