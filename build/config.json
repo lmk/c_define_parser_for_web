@@ -1,0 +1,27 @@
+{
+  "_comment": [
+    { "title": "32 자리 hash 생성하기"
+      , "data": "cat /dev/urandom | tr -dc 'a-zA-Z0-9' | fold -w 32 | head -n 1"
+    }
+  ],
+  "list": [
+    {
+      "id" : "5RAcQeaaF4XYtVaAwg4Gtqf2C4xbpU7v",
+      "title": "Sample Project",
+      "files": [
+        "sample-project/error.h",
+        "sample-project/type.h"
+      ],
+      "option": {
+        "checked": true
+      }
+    },
+    {
+      "id" : "FCg4h39RBah2hL99n6w4MYmLsd0nTslf",
+      "title": "openssl",
+      "files": [
+        "openssl/err.h"
+      ]
+    }
+  ]
+}
