@@ -70,7 +70,7 @@ export default class MainWrapper extends React.Component {
                 </div>
                 <br/>
                 <hr/>
-                <div className='row'>
+                <div className=''>
                     <QueryResult ref='querylist'/>
                 </div>
                 {this.props.children}

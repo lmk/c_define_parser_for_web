@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const reqListReducer = (state = initialState, action) => {
-    console.log("TRACE reducers/index.js");
     switch(action.type) {
         case ALL_LIST:
             return Object.assign({}, state, {

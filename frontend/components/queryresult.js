@@ -16,7 +16,7 @@ export default class QueryResult extends React.Component {
 
     render(){
         return (
-          <div className="row">
+          <div className="">
             {
                 this.state.result.map((item, i) => {
                     return (
@@ -47,7 +47,7 @@ class ResultItem extends React.Component {
 
         if (this.props.data.category === 'ERROR') {
             return (
-                <div className="row col-md-12">
+                <div className="row">
                     <span className="badge badge-danger">{this.props.data.title}</span>
                     <br/>
                     <div className="row alert alert-danger">
@@ -59,7 +59,7 @@ class ResultItem extends React.Component {
             );
         } else {
             return (
-                <div className="row col-md-12">
+                <div className="row">
                     <span className="badge badge-success">{this.props.data.title}</span>
                     <br/>
                     <div className="row alert alert-success">
