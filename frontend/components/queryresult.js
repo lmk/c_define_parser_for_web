@@ -48,8 +48,8 @@ class ResultItem extends React.Component {
         if (this.props.data.category === 'ERROR') {
             return (
                 <div className="row">
-                    <span className="badge badge-danger">{this.props.data.title}</span>
-                    <br/>
+                    <span className="row badge badge-danger"><h6>{this.props.data.title}</h6></span>
+                    <br/><br/>
                     <div className="row alert alert-danger">
                         <h4>
                             <div>{this.props.data.result}</div>
@@ -60,17 +60,19 @@ class ResultItem extends React.Component {
         } else {
             return (
                 <div className="row">
-                    <span className="badge badge-success">{this.props.data.title}</span>
-                    <br/>
-                    <div className="row alert alert-success">
-                        <h4>
-                            <div>{this.props.data.result}</div>
-                        </h4>
-                    </div>
+                    <span className="row badge badge-success">{this.props.data.title}</span>
+                    <br/><br/>
+                    {
+                        this.props.data.result.map((item, i) => {
+                            return (
+                                <div className="alert alert-success" key={i}>
+                                    <h4>{item}</h4>
+                                </div>
+                            );
+                        })
+                    }
                 </div>
             );
         }
-
-
     }
 }

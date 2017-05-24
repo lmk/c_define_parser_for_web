@@ -6,20 +6,19 @@ val = 0
 title = ''
 
 def print_error(msg):
-    global val, title
     result = {'category': 'ERROR', 'code': val, 'title': title, 'result': msg}
     print(json.dumps(result, ensure_ascii=False))
     sys.exit()
 
-def print_normal(msg):
-    global val, title
-    result = {'category': 'INFO', 'code': val, 'title': title, 'result': msg}
+def print_normal(lst):
+    result = {'category': 'INFO', 'code': val, 'title': title, 'result': lst}
     print((json.dumps(result, ensure_ascii=False)))
     sys.exit()
 
 def read_in():
     #return json.loads('{"code":"1","title":"MAS 2.0 Error-Code","files":["build/mas21/error/error.h","build/nsearch/error/NITGEN_NFS_ERROR.h","build/bsp/error/NBioAPI_Error.h"]}')
     #return json.loads('{"code":"1","title":"Secure Error-Code","files":["build/secure27/error/error.h","build/bsp/error/NBioAPI_Error.h","build/secure27/protocol/protocol.h"]}')
+    #return json.loads('{"code":"1","title":"openssl ","files":["build/openssl/err.h"]}')
     lines = sys.stdin.readlines()
     return json.loads(lines[0])
 
@@ -91,7 +90,7 @@ except:
 
 # 5. parsing '#define name value'
 try:
-    regx = re.compile('^[ \t]*\#define[ \t]+([\w_]+)[ \t]+([^\n\r\f\v//]+)', re.MULTILINE)
+    regx = re.compile('^[ \t]*\#[\s]*define[ \t]+([\w_]+)[ \t]+([^\n\r\f\v//]+)', re.MULTILINE)
     define_pair = regx.findall(context)
     for k, v in define_pair:
         dic_command[k] = str(v)
@@ -105,10 +104,13 @@ for k, v in dic_command.iteritems():
 # 7. reverse (key, value) to (value, key)
 dic_command_r = {}
 for k, v in dic_command.iteritems():
-    dic_command_r[v] = k
+    if not v in dic_command_r:
+        dic_command_r[v] = [k]
+    else:
+        dic_command_r[v].append(k)
 
 # 8. find value
 if not val in dic_command_r:
     print_error ('undefined code')
 else:
-    print_normal (str(dic_command_r[val]))
+    print_normal (dic_command_r[val])
