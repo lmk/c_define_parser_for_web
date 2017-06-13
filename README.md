@@ -8,8 +8,8 @@
  
 ## Install
 ```bash
-git clone https://github.com/lmk/c_define_parser_for_web.git
-cd c_define_parser_for_web
+git clone https://github.com/lmk/code_finder.git
+cd code_finder
 npm install
 npm run build
 ```
