@@ -26,7 +26,7 @@ def remove_comment(s):
     return s.strip()
 
 def change_name_to_value(v):
-    if type(v) is int:
+    if type(v) is int or type(v) is long:
         return v
     regx = re.compile('[\w_]+')
     list_candi = regx.findall(v)
