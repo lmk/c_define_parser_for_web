@@ -59,10 +59,15 @@ class Checkbox extends React.Component {
         super();
         this.state = {checked: false};
         this.onChecked = this.onChecked.bind(this);
+        this.onClick = this.onClick.bind(this);
     }
 
     onChecked(e) {
         this.setState({checked: e.target.checked})
+    }
+
+    onClick(e) {
+        this.refs[this.props.id].checked = !this.refs[this.props.id].checked;
     }
 
     componentWillMount() {
@@ -74,7 +79,7 @@ class Checkbox extends React.Component {
             <div className="col-md-4">
                 <div className="checkbox checkbox-primary">
                     <input type="checkbox" className="styled" id={this.props.id} defaultChecked={this.props.checked} ref={this.props.id} onChange={this.onChecked}/>
-                    <label>{this.props.title}</label>
+                    <label onClick={this.onClick}>{this.props.title}</label>
                 </div>
             </div>
         );
