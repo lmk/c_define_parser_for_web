@@ -68,6 +68,8 @@ class Checkbox extends React.Component {
 
     onClick(e) {
         this.refs[this.props.id].checked = !this.refs[this.props.id].checked;
+        this.setState({checked: this.refs[this.props.id].checked})
+
     }
 
     componentWillMount() {
